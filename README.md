@@ -1,4 +1,4 @@
-# Training_Piscine_Python_for_DataScience_-_4_Data_Oriented_Design
+# Data_Oriented_Design
 
 ## Introduction
 This project focuses on implementing data-oriented design principles in Python through a series of exercises. The goal is to enhance the efficiency and readability of code by utilizing functions, decorators, and data classes. This project emphasizes the importance of writing clean, maintainable code while applying statistical and mathematical operations.
