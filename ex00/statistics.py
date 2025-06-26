@@ -1,4 +1,4 @@
-def ft_statistics(*args, **kwargs):
+def ft_statistics(*args, **kwargs) -> None:
     """
     Compute statistics (mean, median, quartile, std, var) from *args
     based on **kwargs instructions.
@@ -11,7 +11,7 @@ def ft_statistics(*args, **kwargs):
     - "var"
     """
     try:
-        data = [float(x) for x in args]
+        data: list[float] = [float(x) for x in args]
     except Exception:
         print("ERROR")
         return
@@ -40,12 +40,12 @@ def ft_statistics(*args, **kwargs):
         return
 
 
-def ft_mean(data):
+def ft_mean(data) -> float:
     """Calculate mean"""
     return sum(data) / len(data)
 
 
-def ft_median(data):
+def ft_median(data) -> float:
     """Calculate median"""
     sorted_data = sorted(data)
     n = len(sorted_data)
@@ -55,7 +55,7 @@ def ft_median(data):
     return (sorted_data[mid - 1] + sorted_data[mid]) / 2
 
 
-def ft_quartile(data):
+def ft_quartile(data) -> tuple[float, float]:
     """Calculate Q1 and Q3 using inclusive method"""
     sorted_data = sorted(data)
     n = len(sorted_data)
@@ -72,18 +72,18 @@ def ft_quartile(data):
     return ft_median(lower), ft_median(upper)
 
 
-def ft_var(data):
+def ft_var(data) -> float:
     """Calculate variance"""
     m = ft_mean(data)
     return sum((x - m) * (x - m) for x in data) / len(data)
 
 
-def ft_std(data):
+def ft_std(data) -> float:
     """Calculate standard deviation"""
     return ft_var(data) ** 0.5
 
 
-def format_number(value):
+def format_number(value) -> float | int:
     """
     Format float to int if it's a whole number.
     For example: 42.0 -> 42
