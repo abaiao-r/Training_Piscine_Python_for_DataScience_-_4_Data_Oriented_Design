@@ -1,27 +1,40 @@
 def square(x: int | float) -> int | float:
     """
-    Returns the square of the argument x.
+    Return the square of a number.
+
+    Example:
+        square(3) -> 9
+        square(1.5) -> 2.25
     """
     return x * x
 
 
 def pow(x: int | float) -> int | float:
     """
-    Returns the exponentiation of x by itself (x ** x).
+    Return the number raised to the power of itself.
+
+    Example:
+        pow(3) -> 27
+        pow(1.5) -> 1.837...
     """
     return x ** x
 
 
 def outer(x: int | float, function) -> object:
     """
-    Returns a callable object that, when called, returns the result of
-    applying 'function' to x raised to the power of the number of times
-    the object has been called.
-    """
-    count = 0
+    Return a closure that applies a function to an internal counter,
+    incrementing the counter each time it's called.
 
+    Example:
+        f = outer(3, square)
+        f() -> square(3)
+        f() -> square(9)
+        f() -> square(81)
+    """
     def inner() -> float:
-        nonlocal count
-        count += 1
-        return function(x ** count)
+        nonlocal x
+        result = function(x)
+        x = result
+        return result
+
     return inner
